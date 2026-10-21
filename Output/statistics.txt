@@ -1,0 +1,5 @@
+The following values are the statistical differences between the experimentally acquired stress relaxation values, and the expected values from the Weichert Model:
+
+Standard Deviation   = 0.0489 MPa
+Percent Error        = 3.0706%
+Correlation          = 0.9926

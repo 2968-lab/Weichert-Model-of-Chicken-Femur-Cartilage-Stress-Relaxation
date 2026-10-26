@@ -1,3 +1,3 @@
 The following is the equation for relaxation modulus in MPa as a function of time in seconds as calculated by the Weichert Model:
 
-E = 274.81 + 75.18 * exp(-t / 20.08) + -2241.87 * exp(-t / 40.15) + 18914.31 * exp(-t / 60.23) + -59018.49 * exp(-t / 80.30) + 75073.62 * exp(-t / 100.38) + -33074.17 * exp(-t / 120.45)
+E = -279041.48 + 580.68 * exp(-t / 13.38) + -143320.70 * exp(-t / 26.77) + 6082181.54 * exp(-t / 40.15) + -82814015.85 * exp(-t / 53.53) + 489585376.34 * exp(-t / 66.92) + -1440997438.47 * exp(-t / 80.30) + 2209801641.03 * exp(-t / 93.68) + -1688601227.21 * exp(-t / 107.07) + 507365267.51 * exp(-t / 120.45)

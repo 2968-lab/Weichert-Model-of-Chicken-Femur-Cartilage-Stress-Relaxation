@@ -9,11 +9,11 @@
 
 function [time,RelaxationModulus,timeRelax,weichertRel,SD,PE,tau,EValues,correlation] = stress_relaxation_analysis(SRDepth,Area,N,RelaxationData)
 
-    time = RelaxationData(:,1,1); % Extract time array in seconds
-    force = RelaxationData(:,2,1); % Force array in Newtons
+    time = RelaxationData(:,1); % Extract time array in seconds
+    force = RelaxationData(:,2); % Force array in Newtons
     [~,maxIndex] = max(force); % finds where the maximum force occurs
     timeRelax = time(maxIndex:end); % Begins the time array with the maximum force
-    strain = abs(RelaxationData(maxIndex,3,1)/SRDepth); % Calculates the strain that occurs when the maximum force is reached
+    strain = abs(RelaxationData(maxIndex,3)/SRDepth); % Calculates the strain that occurs when the maximum force is reached
     RelaxationModulus = force / Area / strain; % Calculates the relaxation modulus
     weichertRelaxation = RelaxationModulus(maxIndex:end); % Begins relaxation modulus array at the maximum force
     

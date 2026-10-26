@@ -34,7 +34,7 @@ function [RelMod,tau,EValues] = calculate_weichert(t,relax,N)
     EValues = (coef) \ ERel; % solves the system of linear equations
     
     % Solve for E over time
-    RelMod = EValues(1); % Initailize with E0
+    RelMod = EValues(1); % Initialize with E0
     
     for i = 2:length(tau)
         % Solve each term of the equation and add it to the total E

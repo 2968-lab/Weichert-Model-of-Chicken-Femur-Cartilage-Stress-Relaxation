@@ -11,8 +11,8 @@ Diameter = 2.5; % Diameter of the indenter tip in mm
 Area = (Diameter/2)^2*pi; % Calculate indenter tip area
 
 % Load Data
-FailureData = readmatrix('LoadToFailureRawData.xlsx');
-RelaxationData = readmatrix('StressRelaxationRawData.xlsx');
+FailureData = readmatrix('Data/LoadToFailureRawData.xlsx');
+RelaxationData = readmatrix('Data/StressRelaxationRawData.xlsx');
 
 %% Stress Relaxation
 SRDepth = 1.32; % Initial length for stress relaxation test in mm
@@ -40,17 +40,18 @@ title("Load to Failure")
 xlabel("Strain")
 ylabel("Stress (MPa)")
 hold on
-plot(x1,y1,'k*','MarkerSize',10) % Plot points of ultimate stress
-plot(x2,y2,'rx','MarkerSize',10) % Plot points of failure
-legend('Stress over Strain','Ultimate Stess','Failure','Location','northwest')
-axis([0 2.2 0 20])
+plot(x1,y1,'k*','MarkerSize',10) % Plot point of ultimate stress
+plot(x2,y2,'rx','MarkerSize',10) % Plot point of failure
+legend('Stress over Strain','Ultimate Stress','Failure','Location','northwest')
+axis([0 1.8 0 14])
 
 %% Output Equation
 fileID = fopen('Output/equation.txt','wt');
-fprintf(fileID,'The following is the equation for relaxation modulus in MPa as a funciton of time in seconds as calculated by the Weichert Model:\n\n');
-fprintf(fileID,'E = %.2f',EValues(1));
+fprintf(fileID,'The following is the equation for relaxation modulus in MPa as a function of time in seconds as calculated by the Weichert Model:\n\n');
+fprintf(fileID,'E = %.2f',EValues(1)); % Initialize each equation with the first fitted constant
 for i = 2:length(EValues')
-fprintf(fileID,' + %.2f * exp(-t / %.2f)',EValues(i),tau(i));
+    % Loop through the remaining constants
+    fprintf(fileID,' + %.2f * exp(-t / %.2f)',EValues(i),tau(i)); % Add them to the equation
 end
 fclose(fileID);
 
